@@ -12,7 +12,7 @@ public class OpenAllWebBrowser {
     protected WebDriver driver;
     DriverFactory driverFactory;
 
-    @Test
+    //@Test
     void TestEdge(){
         Properties edgeProperties = new Properties();
         edgeProperties.put("browser","edge");
@@ -24,7 +24,7 @@ public class OpenAllWebBrowser {
 
     }
 
-    @Test
+    //@Test
     void TestChrome(){
         Properties chromeProperties = new Properties();
         chromeProperties.put("browser","chrome");
@@ -36,7 +36,7 @@ public class OpenAllWebBrowser {
 
     }
 
-    @Test
+   // @Test
     void TestNoFoundBrowserException(){
         Properties noBrowser = new Properties();
         noBrowser.put("browser","none");

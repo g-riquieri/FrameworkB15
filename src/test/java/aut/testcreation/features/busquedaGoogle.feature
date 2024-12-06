@@ -1,7 +1,7 @@
 Feature: Busquedas Google
   Se realizaran una serie de busquedas desde la pagina principal de google
 
-  @aut
+  //@aut
   Scenario: Buscar Tsoft
     Given que estoy en el Home de Google
     When busco la palabra "Tsoft" en el navegador

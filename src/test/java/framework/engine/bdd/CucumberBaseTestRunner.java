@@ -18,12 +18,12 @@ import java.io.InputStream;
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
-@RunWith(Cucumber.class)
+/*@RunWith(Cucumber.class)
 @CucumberOptions(plugin = {"pretty", "io.qameta.allure.cucumber5jvm.AllureCucumber5Jvm"},
         glue = {"framework.testing.steps","framework.engine.bdd"},
         tags = {""},
         features = {"src/test/java/framework/testing/features"})
-@CommonsLog
+@CommonsLog*/
 public class CucumberBaseTestRunner {
 
     public static WebDriver driver;

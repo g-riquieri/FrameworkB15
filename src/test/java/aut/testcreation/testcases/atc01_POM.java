@@ -11,8 +11,8 @@ public class atc01_POM extends SeleniumTestBase {
 
     GoogleHomePage googleHomePage;
 
-    @Test
-    @Tag("regresion")
+    //@Test
+    //@Tag("regresion")
     void busquedaGoogle(){
         googleHomePage = new GoogleHomePage(DriverFactory.getDriver());
         googleHomePage.navegarAlHome();

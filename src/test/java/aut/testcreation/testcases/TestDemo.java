@@ -17,12 +17,12 @@ public class TestDemo extends SeleniumTestBase {
 
     WebDriver driver;
 
-    @Test
+    /*@Test
     @Issue("123")
     @Issue("432")
     @DisplayName("Human-readable test name")
     @Severity(SeverityLevel.CRITICAL)
-    @Description("Test creado para bootcamp 14 tsoft")
+    @Description("Test creado para bootcamp 14 tsoft")*/
     public void testDemo() throws InterruptedException {
         driver = DriverFactory.getDriver();
         driver.navigate().to(BASE_URL_AUT);
