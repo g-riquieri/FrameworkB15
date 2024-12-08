@@ -56,4 +56,22 @@ public class LandingCrusies extends SeleniumWrapper {
 
     }
 
+    public void escribirenres(){
+        waitXMills(1000);
+        switchToNewTabAndCloseOld();
+        click(By.xpath("//span[.='Cualquier destino']"));
+        waitXMills(1000);
+        click(By.xpath("//input[@role='searchbox']"));
+        waitXMills(1000);
+        sendText(By.xpath("//input[@role='searchbox']"),"Mediterraneo");
+        click(By.xpath("//li[@aria-label='Mediterráneo']"));
+        click(By.xpath("//span[.='Cualquier periodo']"));
+        click(By.xpath("(//button[@aria-label='Next Year'])[2]"));
+        waitXMills(1000);
+        click(By.xpath("(//span[contains(text(),' ago ')])[2]"));
+        click(By.xpath("(//span[contains(text(),'Buscar')])[1]"));
+
+
+    }
+
 }

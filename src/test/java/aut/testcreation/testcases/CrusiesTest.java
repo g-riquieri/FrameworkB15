@@ -34,7 +34,7 @@ public class CrusiesTest {
     public void TC001_BusquedaOferta(){
         landing.closeCookies();
         landing.goToCruises();
-        crusiers.offer();
+        crusiers.escribirenres();
     } //done
 
     @Test
@@ -45,10 +45,11 @@ public class CrusiesTest {
 
     }//done
 
-    //@Test
+    @Test
     public void TC003_BusquedaCostoBase(){
         landing.closeCookies();
         landing.goToCruises();
+        crusiers.escribirenres();
 
     }
 

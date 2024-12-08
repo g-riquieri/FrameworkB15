@@ -246,7 +246,8 @@ public class SeleniumWrapper {
         }
     }
 
-       public void scrollToElementAndClick(By by, int timeoutInSeconds) {
+
+    public void scrollToElementAndClick(By by, int timeoutInSeconds) {
         try {
             // Espera explícita hasta que el elemento esté presente y clickeable
             WebDriverWait wait = new WebDriverWait(driver, timeoutInSeconds);
