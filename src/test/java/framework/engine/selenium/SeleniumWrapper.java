@@ -4,11 +4,14 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 public class SeleniumWrapper {
@@ -186,6 +189,104 @@ public class SeleniumWrapper {
             System.out.println("El navegador se ha cerrado completamente.");
         } else {
             System.out.println("No hay un navegador activo para cerrar.");
+        }
+    }
+
+
+    public void clearCacheUsingKeyboardShortcut() {
+        try {
+            // Enviar combinación de teclas para abrir la página de borrar caché
+            driver.get("chrome://settings/clearBrowserData");
+            Thread.sleep(2000); // Esperar que cargue la página
+
+            // Simular ENTER para confirmar limpieza de caché
+            driver.findElement(By.tagName("body")).sendKeys(Keys.ENTER);
+            Thread.sleep(2000); // Esperar que se complete el proceso
+
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public WebElement waitForElement(By locator, int timeoutInSeconds) {
+        WebDriverWait wait = new WebDriverWait(driver, timeoutInSeconds);
+        return wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+    }
+
+    public void switchToNewTabAndCloseOld() {
+        try {
+            // Obtiene el identificador de la pestaña original
+            String originalTab = driver.getWindowHandle();
+
+            // Obtiene todos los identificadores de las pestañas abiertas
+            Set<String> allTabs = driver.getWindowHandles();
+
+            // Cambia el controlador a la nueva pestaña
+            for (String tab : allTabs) {
+                if (!tab.equals(originalTab)) {
+                    driver.switchTo().window(tab);
+                    System.out.println("Cambiado a la nueva pestaña: " + driver.getTitle());
+                    break;
+                }
+            }
+
+            // Cierra la pestaña original
+            driver.switchTo().window(originalTab).close();
+
+            // Cambia el controlador de vuelta a la nueva pestaña (asegura que sigue activa)
+            allTabs = driver.getWindowHandles();
+            if (!allTabs.isEmpty()) {
+                driver.switchTo().window(allTabs.iterator().next());
+            }
+
+            System.out.println("Título de la pestaña activa después de cerrar la anterior: " + driver.getTitle());
+        } catch (Exception e) {
+            System.err.println("Error al cambiar a la nueva pestaña y cerrar la anterior: " + e.getMessage());
+        }
+    }
+
+    //Seleccionar un elemento de una lista
+    public void selectFromDropdown(By dropdownLocator, String method, Object selection) {
+        try {
+            WebElement dropdown = driver.findElement(dropdownLocator);
+            Select select = new Select(dropdown);
+
+            switch (method.toLowerCase()) {
+                case "value":
+                    select.selectByValue((String) selection);
+                    break;
+                case "index":
+                    select.selectByIndex((int) selection);
+                    break;
+                case "text":
+                    select.selectByVisibleText((String) selection);
+                    break;
+                default:
+                    throw new IllegalArgumentException("Método inválido: Usa 'value', 'index' o 'text'.");
+            }
+            System.out.println("Seleccionado correctamente: " + selection);
+        } catch (Exception e) {
+            System.err.println("Error al seleccionar de la lista estándar: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    public void scrollToElementAndClick(By by, int timeoutInSeconds) {
+        try {
+            // Espera explícita hasta que el elemento esté presente y clickeable
+            WebDriverWait wait = new WebDriverWait(driver, timeoutInSeconds);
+            WebElement element = wait.until(ExpectedConditions.elementToBeClickable(by));
+
+            // Desplazar hasta el elemento
+            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", element);
+
+            // Clic en el elemento
+            element.click();
+
+            System.out.println("Click realizado en el elemento: " + by.toString());
+        } catch (Exception e) {
+            System.err.println("Error al hacer clic en el elemento: " + by.toString() + " - " + e.getMessage());
         }
     }
 }

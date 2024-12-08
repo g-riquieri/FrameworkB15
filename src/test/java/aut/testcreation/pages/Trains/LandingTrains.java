@@ -88,17 +88,17 @@ public class LandingTrains extends SeleniumWrapper {
         waitXMills(3000);
 
         //Seleccion del mes
-
-        //click(By.xpath("//span[contains(.,'Mes')]"));
         click(By.xpath("(//span[contains(.,'Mes')])[1]"));
-        //click(By.xpath("//button[@data-testid=groups.1.travellers.1.dateOfBirth_month]"));
-        //click(By.xpath("(//span[text()='Mes'])[1]"));
         waitXMills(1000);
-        sendText(By.xpath("(//span[contains(.,'Mes')])[1]"), "marzo");
+        click(By.xpath("(//span[contains(.,'marzo')])[1]"));
         waitXMills(3000);
 
+        //Selecciona el Año
         click(By.xpath("//span[contains(.,'Año')]"));
-        sendText(By.xpath("click(By.xpath(\"//span[contains(.,'Año')]\"));"), "1995");
+        waitXMills(1000);
+        //sendText(By.xpath("//span[contains(.,'Año')]"),"1995");
+        sendText(By.xpath("(//span[text()='Año'])[1]"),"1995");
+
         //Seleccionar DNI
         click(By.xpath("//button[@data-testid=\"groups.1.travellers.1.documentType\"]"));
         click(By.xpath("//span[.='DNI']\n"));
