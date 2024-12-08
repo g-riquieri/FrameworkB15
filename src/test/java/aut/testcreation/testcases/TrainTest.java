@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.awt.*;
 import java.util.ArrayList;
 
 public class TrainTest {
@@ -27,23 +28,19 @@ public class TrainTest {
         landing.loadPage("https://www.rumbo.es/");
         landingTrains = new LandingTrains(driver);
     }
-
+//-------------------------------------CASO 01--------------------------------
     @Test
     public void TC001(){
         landing.closeCookies();
         landing.goToTrains();
 
         landingTrains.compFormTren();
-
-
     }
-
     @AfterEach
     public void postConditions(){
         //landing.closeBrowser();
     }
-
-
+    //-------------------------------------CASO 02--------------------------------
     @Test
     public void TC002(){
         landing.closeCookies();
@@ -53,24 +50,24 @@ public class TrainTest {
 
 
     }
-
+    //-------------------------------------CASO 03--------------------------------
     @Test
-    public void TC003(){
+    public void TC003()throws AWTException {
         landing.closeCookies();
         landing.goToTrains();
 
         landingTrains.resViajeSS();
 
     }
-
+    //-------------------------------------CASO 04--------------------------------
     @Test
-    public void TC004(){
+    public void TC004()throws AWTException{
         landing.closeCookies();
         landing.goToTrains();
 
         landingTrains.viajeMasRapido();
 
 
-
     }
+
 }

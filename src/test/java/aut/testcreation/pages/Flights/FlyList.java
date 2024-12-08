@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.List;
+import java.util.LinkedList;
 
 public class FlyList extends SeleniumWrapper {
 
@@ -28,14 +29,14 @@ public class FlyList extends SeleniumWrapper {
         masBarato.click();
     }
 
-    public void elegirVuelo() {
+   /* public void elegirVuelo() {
         waitXMills(3000);
         List<WebElement> vueloElecto = driver.findElements(By.xpath("//div[@class=\"trip-collection-view__trips-container-top\"]//div[contains(@data-testid,'transportcard')]"));
         vueloElecto.getFirst().click();
 
         WebElement btnSelec = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[text()[contains(.,'Seleccionar')]]")));
         btnSelec.click();
-    }
+    }*/
 
     public void elegirPaquete() {
         waitXMills(3000);
