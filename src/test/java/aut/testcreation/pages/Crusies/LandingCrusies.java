@@ -18,6 +18,7 @@ public class LandingCrusies extends SeleniumWrapper {
     //By Section
     By offerButton = By.xpath("(//span[contains(text(),'Ofertas')])[1]");
     By lastMinute = By.xpath("(//span[contains(text(),'Última hora')])[1]");
+    By exotic = By.xpath("(//span[contains(text(),'Cruceros Exóticos')])[1]");
     By discover = By.xpath("(//span[contains(text(),'Descubre')])[1]");
     By less1 = By.xpath("//div[@class='crs-pd-guests__fields inline_layout']/div[1]//button[.='-']");
     By resume = By.xpath("(//span[contains(text(),'Solicitar presupuesto')])[1]");
@@ -35,6 +36,22 @@ public class LandingCrusies extends SeleniumWrapper {
         waitXMills(1000);
         switchToNewTabAndCloseOld();
         scrollToElementAndClick(less1,10);
+        waitXMills(1000);
+        scrollToElementAndClick(resume,10);
+
+    }
+
+    public void offer2() {
+        waitXMills(1000);
+        switchToNewTabAndCloseOld();
+        click(offerButton);
+        click(exotic);
+        waitXMills(1000);
+        click(discover);
+        waitXMills(1000);
+        switchToNewTabAndCloseOld();
+        scrollToElementAndClick(less1,10);
+        waitXMills(1000);
         scrollToElementAndClick(resume,10);
 
     }
