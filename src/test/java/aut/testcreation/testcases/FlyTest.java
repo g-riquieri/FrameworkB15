@@ -42,7 +42,8 @@ public class FlyTest {
         landing.completeTheForm();
 
         flyList.btnMasBaratos();
-        //flyList.elegirVuelo();
+        flyList.elegirVuelo();
+
         //flyList.elegirPaquete();
         //flyList.completarDatContac("Fran","Martinez","prueba@prueba.com");
     }
@@ -51,6 +52,7 @@ public class FlyTest {
     //@AfterEach
     public void postConditions(){
         landing.closeBrowser();
+        landing.clearCacheUsingKeyboardShortcut();
     }
 
 
