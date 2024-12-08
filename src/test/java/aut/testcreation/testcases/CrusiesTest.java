@@ -34,20 +34,22 @@ public class CrusiesTest {
     public void TC001_BusquedaOferta(){
         landing.closeCookies();
         landing.goToCruises();
-        crusiers.offer();
-    }
+        crusiers.escribirenres();
+    } //done
 
     @Test
     public void TC002_ReservaCrucerosExoticos(){
         landing.closeCookies();
         landing.goToCruises();
+        crusiers.offer2();
 
-    }
+    }//done
 
-    //@Test
+    @Test
     public void TC003_BusquedaCostoBase(){
         landing.closeCookies();
         landing.goToCruises();
+        crusiers.escribirenres();
 
     }
 
