@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.List;
+import java.util.LinkedList;
 
 public class FlyList extends SeleniumWrapper {
 
@@ -14,10 +15,12 @@ public class FlyList extends SeleniumWrapper {
         super(driver);
     }
 
-    By nombre = By.xpath("//input[@name='name']");
-    By apellido = By.xpath("//input[@name='surname']");
-    By correo = By.xpath("//input[@name='email']");
-    By caracTel = By.xpath("//span[.='Prefijo']");
+    //By btnSelec = By.xpath("//button[text()[contains(.,'Seleccionar')]]");
+    //By opcRecomendada = By.xpath("//div[contains(@class,'recommendedCard')]");
+    By nombre = By.xpath("//div[@data-testid='name']");
+    By apellido = By.xpath("//div[@data-testid='surname']");
+    By correo = By.xpath("//div[@data-testid='email']");
+    By caracTel = By.xpath("//div[@data-testid='selected-option-label']");
     By telefono = By.xpath("//div[@data-testid='phone_phoneNumber']");
 
     public void btnMasBaratos() {
@@ -26,30 +29,27 @@ public class FlyList extends SeleniumWrapper {
         masBarato.click();
     }
 
-    public void elegirVuelo() {
+   public void elegirVuelo() {
         waitXMills(3000);
         List<WebElement> vueloElecto = driver.findElements(By.xpath("//div[@class=\"trip-collection-view__trips-container-top\"]//div[contains(@data-testid,'transportcard')]"));
         vueloElecto.getFirst().click();
 
-        WebElement btnSelec = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[contains(text(),'Seleccionar')]")));
+        WebElement btnSelec = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[text()[contains(.,'Seleccionar')]]")));
         btnSelec.click();
     }
 
     public void elegirPaquete() {
         waitXMills(3000);
-        WebElement opcRecomendada = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button" +
-                "[contains(text(),'Elegir Flexible')]")));
-        boolean exist = !driver.findElements(By.xpath("//h4[text()='Viaja con más flexibilidad']")).isEmpty();
-        if(exist) {
-            opcRecomendada.click();
-        }
+        WebElement opcRecomendada = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[text()[contains(.,'Seleccionar')]]")));
+        opcRecomendada.click();
     }
 
-    public void completarDatContac(String name, String surname, String email, String prenum) {
+    public void completarDatContac(String name, String surname, String email) {
         waitXMills(3000);
         sendText(nombre,name);
         sendText(apellido,surname);
         sendText(correo,email);
-        sendText(caracTel,prenum);
+        //sendText(caracTel,caraTel);
+        //sendText(telefono,phone);
     }
 }

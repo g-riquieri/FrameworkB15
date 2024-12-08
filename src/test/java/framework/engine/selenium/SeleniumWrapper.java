@@ -244,33 +244,7 @@ public class SeleniumWrapper {
         }
     }
 
-    //Seleccionar un elemento de una lista
-    public void selectFromDropdown(By dropdownLocator, String method, Object selection) {
-        try {
-            WebElement dropdown = driver.findElement(dropdownLocator);
-            Select select = new Select(dropdown);
-
-            switch (method.toLowerCase()) {
-                case "value":
-                    select.selectByValue((String) selection);
-                    break;
-                case "index":
-                    select.selectByIndex((int) selection);
-                    break;
-                case "text":
-                    select.selectByVisibleText((String) selection);
-                    break;
-                default:
-                    throw new IllegalArgumentException("Método inválido: Usa 'value', 'index' o 'text'.");
-            }
-            System.out.println("Seleccionado correctamente: " + selection);
-        } catch (Exception e) {
-            System.err.println("Error al seleccionar de la lista estándar: " + e.getMessage());
-            e.printStackTrace();
-        }
-    }
-
-    public void scrollToElementAndClick(By by, int timeoutInSeconds) {
+       public void scrollToElementAndClick(By by, int timeoutInSeconds) {
         try {
             // Espera explícita hasta que el elemento esté presente y clickeable
             WebDriverWait wait = new WebDriverWait(driver, timeoutInSeconds);
@@ -285,6 +259,20 @@ public class SeleniumWrapper {
             System.out.println("Click realizado en el elemento: " + by.toString());
         } catch (Exception e) {
             System.err.println("Error al hacer clic en el elemento: " + by.toString() + " - " + e.getMessage());
+        }
+    }
+
+    public void scrollDown(int pixels) {
+        try {
+            // Usa JavascriptExecutor para ejecutar el desplazamiento
+            JavascriptExecutor js = (JavascriptExecutor) driver;
+
+            // Realiza el scroll hacia abajo
+            js.executeScript("window.scrollBy(0," + pixels + ");");
+
+            System.out.println("Se realizó el scroll hacia abajo: " + pixels + " píxeles.");
+        } catch (Exception e) {
+            System.err.println("Error al realizar el scroll: " + e.getMessage());
         }
     }
 }
