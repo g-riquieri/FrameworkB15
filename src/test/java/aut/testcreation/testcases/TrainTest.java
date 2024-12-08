@@ -48,7 +48,6 @@ public class TrainTest {
 
         landingTrains. reservaSugePage();
 
-
     }
     //-------------------------------------CASO 03--------------------------------
     @Test
@@ -67,7 +66,5 @@ public class TrainTest {
 
         landingTrains.viajeMasRapido();
 
-
     }
-
 }

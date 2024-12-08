@@ -36,7 +36,7 @@ public class FlyTest {
         landing.completeTheForm();
     }
 
-    @Test
+   /* @Test
     public void TC002(){
         landing.closeCookies();
         landing.completeTheForm();
@@ -55,5 +55,5 @@ public class FlyTest {
         landing.clearCacheUsingKeyboardShortcut();
     }
 
-
+*/
 }

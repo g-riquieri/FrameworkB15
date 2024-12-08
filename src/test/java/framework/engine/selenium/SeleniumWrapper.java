@@ -289,4 +289,30 @@ public class SeleniumWrapper {
             System.err.println("Error al hacer clic en el elemento: " + by.toString() + " - " + e.getMessage());
         }
     }
+    public void scrollToElement(By locator) {
+        try {
+            WebElement element = waitForElement(locator, 10); // Espera explícita para garantizar que el elemento exista
+            ((JavascriptExecutor) driver).executeScript(
+                    "arguments[0].scrollIntoView({block: 'center', inline: 'nearest'});",
+                    element
+            );
+            System.out.println("Se desplazó al elemento ubicado por: " + locator);
+        } catch (Exception e) {
+            System.err.println("Error al desplazar al elemento: " + e.getMessage());
+        }
+    }
+    public void scrollDown(int pixels) {
+        try {
+            // Usa JavascriptExecutor para ejecutar el desplazamiento
+            JavascriptExecutor js = (JavascriptExecutor) driver;
+
+            // Realiza el scroll hacia abajo
+            js.executeScript("window.scrollBy(0," + pixels + ");");
+
+            System.out.println("Se realizó el scroll hacia abajo: " + pixels + " píxeles.");
+        } catch (Exception e) {
+            System.err.println("Error al realizar el scroll: " + e.getMessage());
+        }
+    }
+
 }
