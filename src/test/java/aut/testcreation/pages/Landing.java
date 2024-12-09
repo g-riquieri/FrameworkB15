@@ -27,9 +27,11 @@ public class Landing extends SeleniumWrapper {
         sendText(By.xpath("//input[@aria-label='Origen']"),"Buenos Aires (BUE)");
         waitXMills(1000);
         click(By.xpath("//input[@aria-label='Origen']"));
+
         sendText(By.xpath("//input[@aria-label='Destino']"),"Madrid (MAD)");
         waitXMills(1000);
         click(By.xpath("//input[@aria-label='Destino']"));
+
         waitXMills(1000);
         click(By.xpath("//button[@aria-label='¿Cuándo?']"));
         waitXMills(2000);
@@ -37,8 +39,13 @@ public class Landing extends SeleniumWrapper {
         waitXMills(2000);
         click(By.xpath("//button[contains(text(),'28')]"));
 
-        //elegir fecha, cant pasajeros y clase de vuelo
-        //click(By.xpath("//button[@aria-label='Buscar']"));
+        click(By.xpath("//span[.='Pasajeros y clase del vuelo']"));
+        waitXMills(10000);
+        //click(By.xpath("//button[@aria-label='Reducir el número de adultos' and @type='button']"));
+        //waitXMills(10000);
+        click(By.xpath("//span[.='Pasajeros y clase del vuelo']"));
+        waitXMills(3000);
+        click(By.xpath("//button[@aria-label='Buscar']"));
     }
 
     public void btnBuscar() {
