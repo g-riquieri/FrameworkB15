@@ -54,13 +54,14 @@ public class CrusiesTest {
         landing.goToCruises();
         crusiers.escribirenres();
         crusiersList.lowestPrice();
+    } //done
 
-    }
-
-    //@Test
+    @Test
     public void TC004_AnalisiDeCostoBase(){
         landing.closeCookies();
         landing.goToCruises();
+        crusiers.duracionDias();
+
 
     }
 

@@ -77,7 +77,26 @@ public class LandingCrusies extends SeleniumWrapper {
         waitXMills(1000);
         click(ago);
         click(search);
+    }
 
+    public void duracionDias(){
+        waitXMills(1000);
+        switchToNewTabAndCloseOld();
+        click(destiny);
+        waitXMills(1000);
+        click(searchBox);
+        waitXMills(1000);
+        sendText(searchBox,"Mediterraneo");
+        click(mediterraneo);
+        click(periodo);
+        click(next);
+        waitXMills(1000);
+        click(ago);
+        click(By.xpath("//span[.='Cualquier duración']"));
+        waitXMills(1000);
+        click(By.xpath("//span[.='más de 9 días']"));
+        waitXMills(1000);
+        click(search);
 
     }
 
