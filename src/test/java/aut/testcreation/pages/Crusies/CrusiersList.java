@@ -31,6 +31,14 @@ public class CrusiersList extends SeleniumWrapper {
     }
 
     public void selecCamarote(){
+        waitXMills(1000);
+        click(By.xpath("(//span[contains(text(),'Tasas incluidas')])[1]"));
+        waitXMills(1000);
+        switchToNewTabAndCloseOld();
+        scrollDown(500);
+        click(waitForElement(By.xpath("(//span[contains(text(),'Selecciona camarote')])[1]"),10));
+        click(waitForElement(By.xpath("(//span[contains(text(),'Solicitar presupuesto')])[1]"),10));
+        click(waitForElement(By.xpath("//span[contains(text(),'Reserva')]"),10));
 
     }
 

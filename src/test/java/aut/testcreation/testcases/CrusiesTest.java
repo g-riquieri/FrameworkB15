@@ -61,9 +61,8 @@ public class CrusiesTest {
         landing.closeCookies();
         landing.goToCruises();
         crusiers.duracionDias();
-
-
-    }
+        crusiersList.selecCamarote();
+    }//done
 
     //@Test
     public void TC005_ReservaMasDeMesLimite(){
