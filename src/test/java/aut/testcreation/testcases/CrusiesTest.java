@@ -1,5 +1,6 @@
 package aut.testcreation.testcases;
 
+import aut.testcreation.pages.Crusies.CrusiersList;
 import aut.testcreation.pages.Crusies.LandingCrusies;
 import aut.testcreation.pages.Landing;
 import framework.engine.selenium.SeleniumWrapper;
@@ -19,6 +20,7 @@ public class CrusiesTest {
     //pages
     private Landing landing;
     private LandingCrusies crusiers;
+    private CrusiersList crusiersList;
 
     @BeforeEach
     public void setup() {
@@ -26,6 +28,7 @@ public class CrusiesTest {
         driver = SeleniumWrapper.setupDriver(browser);
         landing = new Landing(driver);
         crusiers = new LandingCrusies(driver);
+        crusiersList = new CrusiersList(driver);
         landing.clearCacheUsingKeyboardShortcut();
         landing.loadPage("https://www.rumbo.es/");
     }
@@ -50,21 +53,23 @@ public class CrusiesTest {
         landing.closeCookies();
         landing.goToCruises();
         crusiers.escribirenres();
+        crusiersList.lowestPrice();
+    } //done
 
-    }
-
-    //@Test
+    @Test
     public void TC004_AnalisiDeCostoBase(){
         landing.closeCookies();
         landing.goToCruises();
+        crusiers.duracionDias();
+        crusiersList.selecCamarote();
+    }//done
 
-    }
-
-    //@Test
+    @Test
     public void TC005_ReservaMasDeMesLimite(){
         landing.closeCookies();
         landing.goToCruises();
-
+        crusiers.duracionDias();
+        crusiersList.cambioCantPersonas();
     }
 
     //@Test

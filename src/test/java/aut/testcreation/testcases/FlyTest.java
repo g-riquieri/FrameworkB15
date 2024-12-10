@@ -44,7 +44,7 @@ public class FlyTest {
         //flyList.elegirVuelo();
     }
 
-   /* @Test
+    @Test
     public void TC002(){
         landing.closeCookies();
         landing.banEnPareja();
@@ -78,15 +78,12 @@ public class FlyTest {
     public void TC003() {
         landing.closeCookies();
         landing.completeTheForm();
-        //flyList.btnMasBaratos();
-        //flyList.elegirVuelo();
+        flyList.btnMasBaratos();
+        flyList.elegirVuelo();
     }
-
 
     //@AfterEach
     public void postConditions(){
         landing.closeBrowser();
     }
-
-*/
 }
