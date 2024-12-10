@@ -292,13 +292,14 @@ public class SeleniumWrapper {
         }
     }
 
-    public void clearField(By locator) {
+    public void hoverOverElement(By locator) {
         try {
-            WebElement inputField = waitForElementToBeVisible(locator, 10); // Espera explícita para garantizar visibilidad
-            inputField.clear(); // Limpia el campo
-            System.out.println("Campo limpiado: " + locator.toString());
+            WebElement element = waitForElementToBeVisible(locator, 10); // Espera a que el elemento sea visible
+            Actions actions = new Actions(driver);
+            actions.moveToElement(element).perform(); // Mueve el cursor al elemento
+            System.out.println("Cursor movido sobre el elemento: " + locator.toString());
         } catch (Exception e) {
-            System.err.println("Error al limpiar el campo: " + e.getMessage());
+            System.out.println("Error al mover el cursor sobre el elemento: " + e.getMessage());
         }
     }
 

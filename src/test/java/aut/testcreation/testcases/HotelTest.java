@@ -57,22 +57,23 @@ public class HotelTest {
         hotel.allInclusive();
 
     }
-    /*@Test
-    public void TC001_BusquedaOferta(){
+    @Test
+    public void TC005_CompleteRegistration(){
         landing.closeCookies();
-        landing.goToCruises();
-        crusiers.escribirenres();
+        landing.goToHotels();
+        hotel.completeRegistration();
     }
     @Test
     public void TC001_BusquedaOferta(){
         landing.closeCookies();
-        landing.goToCruises();
-        crusiers.escribirenres();
-    }*/
+        landing.house();
+        hotel.casaTest();
+
+    }
 
     @AfterEach
     public void postConditions(){
-        //landing.closeBrowser();
+        landing.closeBrowser();
     }
 
 

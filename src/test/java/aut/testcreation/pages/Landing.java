@@ -90,4 +90,8 @@ public class Landing extends SeleniumWrapper {
         click(waitForElement(By.xpath("//p[.='Hoteles']"),10));
     }
 
+    public void house(){
+        hoverOverElement(By.xpath("//p[.='Hoteles']"));
+        click(waitForElement(By.xpath("//div[.='Casas']"),10));
+    }
 }

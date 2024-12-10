@@ -61,7 +61,51 @@ public class Hotels extends SeleniumWrapper {
         sendText(By.xpath("//input[@name='surname']"),"Constantine");
         sendText(By.xpath("//input[@name='email']"),"outWorld@gmail.com");
         sendText(By.xpath("//input[@name='phone']"),"3804444444");
+    }
 
+    public void completeRegistration() {
+        waitXMills(2000);
+        click(waitForElement(By.xpath("(//input[@placeholder='¿Adónde quieres ir?'])[1]"),10));
+        sendText(By.xpath("(//input[@placeholder='¿Adónde quieres ir?'])[1]"),"Barcelona");
+        waitXMills(1000);
+        click(waitForElement(By.xpath("(//span[contains(text(),'¿Cuándo?')])[1]"),10));
+        click(waitForElement(By.xpath("(//button[contains(text(),'4')])[2]"),10));
+        click(waitForElement(By.xpath("(//button[contains(text(),'12')])[2]"),10));
+        click(waitForElement(By.xpath("//div[@class='d-1ea2lc2']/button[1]"),10));
+        click(waitForElement(By.xpath("(//button[@class='d-1qoyuz'])[1]"),10));
+        click(waitForElement(By.xpath("(//div[contains(., 'Precio por noche')])[7]"),10));
+        waitXMills(1000);
+        switchToNewTabAndCloseOld();
+        scrollToElementAndClick(By.xpath("(//span[contains(., 'Cancelación gratuita')])[1]"),10);
+        scrollToElementAndClick(By.xpath("(//span[contains(., 'Continuar')])[1]"),10);
+        waitXMills(2000);
+        sendText(By.xpath("//input[@name='name']"),"Jhon");
+        sendText(By.xpath("//input[@name='surname']"),"Constantine");
+        sendText(By.xpath("//input[@name='email']"),"outWorld@gmail.com");
+        sendText(By.xpath("//input[@name='phone']"),"3804444444");
 
     }
+
+    public void casaTest(){
+        click(waitForElement(By.xpath("(//input[@placeholder='¿Adónde quieres ir?'])[1]"),10));
+        sendText(By.xpath("(//input[@placeholder='¿Adónde quieres ir?'])[1]"),"Barcelona");
+        waitXMills(1000);
+        click(waitForElement(By.xpath("(//span[contains(text(),'¿Cuándo?')])[1]"),10));
+        click(waitForElement(By.xpath("(//button[contains(text(),'4')])[2]"),10));
+        click(waitForElement(By.xpath("(//button[contains(text(),'12')])[2]"),10));
+        click(waitForElement(By.xpath("//div[@class='d-1ea2lc2']/button[1]"),10));
+        click(waitForElement(By.xpath("(//button[@class='d-1qoyuz'])[1]"),10));
+        click(waitForElement(By.xpath("(//div[contains(., 'Precio por noche')])[7]"),10));
+        waitXMills(1000);
+        switchToNewTabAndCloseOld();
+        scrollToElementAndClick(By.xpath("(//span[contains(., 'Cancelación gratuita')])[1]"),10);
+        scrollToElementAndClick(By.xpath("(//span[contains(., 'Continuar')])[1]"),10);
+        waitXMills(2000);
+        sendText(By.xpath("//input[@name='name']"),"Jhon");
+        sendText(By.xpath("//input[@name='surname']"),"Constantine");
+        sendText(By.xpath("//input[@name='email']"),"outWorld@gmail.com");
+        sendText(By.xpath("//input[@name='phone']"),"3804444444");
+    }
+
+
 }
