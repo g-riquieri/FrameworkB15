@@ -15,13 +15,9 @@ public class FlyList extends SeleniumWrapper {
         super(driver);
     }
 
-    //By btnSelec = By.xpath("//button[text()[contains(.,'Seleccionar')]]");
-    //By opcRecomendada = By.xpath("//div[contains(@class,'recommendedCard')]");
     By nombre = By.xpath("//div[@data-testid='name']");
     By apellido = By.xpath("//div[@data-testid='surname']");
     By correo = By.xpath("//div[@data-testid='email']");
-    By caracTel = By.xpath("//div[@data-testid='selected-option-label']");
-    By telefono = By.xpath("//div[@data-testid='phone_phoneNumber']");
 
     public void btnMasBaratos() {
         waitXMills(3000);
@@ -29,7 +25,7 @@ public class FlyList extends SeleniumWrapper {
         masBarato.click();
     }
 
-   public void elegirVuelo() {
+    public void elegirVuelo() {
         waitXMills(3000);
         List<WebElement> vueloElecto = driver.findElements(By.xpath("//div[@class=\"trip-collection-view__trips-container-top\"]//div[contains(@data-testid,'transportcard')]"));
         vueloElecto.getFirst().click();
@@ -46,10 +42,8 @@ public class FlyList extends SeleniumWrapper {
 
     public void completarDatContac(String name, String surname, String email) {
         waitXMills(3000);
-        sendText(nombre,name);
-        sendText(apellido,surname);
-        sendText(correo,email);
-        //sendText(caracTel,caraTel);
-        //sendText(telefono,phone);
+        sendText(nombre, name);
+        sendText(apellido, surname);
+        sendText(correo, email);
     }
 }

@@ -3,6 +3,7 @@ package aut.testcreation.testcases;
 import aut.testcreation.pages.Flights.ChooseHotel;
 import aut.testcreation.pages.Flights.FlyList;
 import aut.testcreation.pages.Flights.HotelList;
+import aut.testcreation.pages.Flights.LandingEnglish;
 import aut.testcreation.pages.Landing;
 import framework.engine.selenium.SeleniumWrapper;
 import org.junit.jupiter.api.BeforeEach;
@@ -23,6 +24,7 @@ public class FlyTest {
     private FlyList flyList;
     private HotelList hotelList;
     private ChooseHotel chooseHotel;
+    private LandingEnglish landingEnglish;
 
     @BeforeEach
     public void setup() {
@@ -33,7 +35,7 @@ public class FlyTest {
         flyList = new FlyList(driver);
         hotelList = new HotelList(driver);
         chooseHotel = new ChooseHotel(driver);
-
+        landingEnglish = new LandingEnglish(driver);
     }
 
     @Test
@@ -71,11 +73,27 @@ public class FlyTest {
         }
         assert secondWindow != null;
         driver.switchTo().window(secondWindow); // Cambia a la segunda ventana emergente
-        chooseHotel.elegirOpcHotel();
+        chooseHotel.elegirHotelReser();
     }
 
     @Test
     public void TC003() {
+        landing.closeCookies();
+        landing.completeTheForm();
+        flyList.btnMasBaratos();
+        flyList.elegirVuelo();
+    }
+
+    @Test
+    public void TC004() {
+        landing.closeCookies();
+        landing.cambiarPaisWorld();
+        landing.closeCookies();
+        landingEnglish.completEnlglishForm();
+    }
+
+    @Test
+    public void TC005() {
         landing.closeCookies();
         landing.completeTheForm();
         flyList.btnMasBaratos();

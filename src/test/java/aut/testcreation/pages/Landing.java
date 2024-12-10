@@ -38,14 +38,12 @@ public class Landing extends SeleniumWrapper {
         click(By.xpath("//button[contains(text(),'20')]"));
         waitXMills(2000);
         click(By.xpath("//button[contains(text(),'28')]"));
-
-        click(By.xpath("//span[.='Pasajeros y clase del vuelo']"));
-        waitXMills(10000);
-        //click(By.xpath("//button[@aria-label='Reducir el número de adultos' and @type='button']"));
-        //waitXMills(10000);
-        click(By.xpath("//span[.='Pasajeros y clase del vuelo']"));
-        waitXMills(3000);
         click(By.xpath("//button[@aria-label='Buscar']"));
+    }
+
+    public void cambiarPaisWorld() {
+        click(explicitWait(By.xpath("//button[@aria-label='Selecciona tu país']"),10));
+        click(explicitWait(By.xpath("//a[.='Worldwide (English)']"),10));
     }
 
     public void btnBuscar() {

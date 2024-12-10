@@ -14,7 +14,7 @@ public class ChooseHotel extends SeleniumWrapper {
         super(driver);
     }
 
-    public void elegirOpcHotel() {
+    public void elegirHotelReser() {
         List<WebElement> opciones = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//div" +
                 "[contains(@id, 'rooms')]")));
         if (!opciones.isEmpty()) {
@@ -27,5 +27,9 @@ public class ChooseHotel extends SeleniumWrapper {
             wait.until(ExpectedConditions.elementToBeClickable(buttonInFirstOption));
             buttonInFirstOption.click();
         }
+    }
+
+    public void btnReservar() {
+
     }
 }
