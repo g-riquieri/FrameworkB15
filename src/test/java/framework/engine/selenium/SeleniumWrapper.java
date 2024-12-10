@@ -147,17 +147,10 @@ public class SeleniumWrapper {
         element.click();
     }//Hace click en un elemento
 
-    public void watXMills(int mills) {
-        try {
-            Thread.sleep(mills);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
     public void  sendText(By locator, String texto){
         this.driver.findElement(locator).sendKeys(texto);
     }
+
     public void setAriaActiveDescendant(By elementLocator, String newValue) {
         try {
             WebElement element = driver.findElement(elementLocator);
@@ -246,32 +239,6 @@ public class SeleniumWrapper {
         }
     }
 
-    //Seleccionar un elemento de una lista
-    public void selectFromDropdown(By dropdownLocator, String method, Object selection) {
-        try {
-            WebElement dropdown = driver.findElement(dropdownLocator);
-            Select select = new Select(dropdown);
-
-            switch (method.toLowerCase()) {
-                case "value":
-                    select.selectByValue((String) selection);
-                    break;
-                case "index":
-                    select.selectByIndex((int) selection);
-                    break;
-                case "text":
-                    select.selectByVisibleText((String) selection);
-                    break;
-                default:
-                    throw new IllegalArgumentException("Método inválido: Usa 'value', 'index' o 'text'.");
-            }
-            System.out.println("Seleccionado correctamente: " + selection);
-        } catch (Exception e) {
-            System.err.println("Error al seleccionar de la lista estándar: " + e.getMessage());
-            e.printStackTrace();
-        }
-    }
-
     public void scrollToElementAndClick(By by, int timeoutInSeconds) {
         try {
             // Espera explícita hasta que el elemento esté presente y clickeable
@@ -312,6 +279,26 @@ public class SeleniumWrapper {
             System.out.println("Se realizó el scroll hacia abajo: " + pixels + " píxeles.");
         } catch (Exception e) {
             System.err.println("Error al realizar el scroll: " + e.getMessage());
+        }
+    }
+
+    public WebElement waitForElementToBeVisible(By locator, int timeoutInSeconds) {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, timeoutInSeconds);
+            return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+        } catch (Exception e) {
+            System.err.println("Error: El elemento no fue visible dentro del tiempo especificado. Locator: " + locator.toString());
+            throw e; // Opcional: Lanza la excepción si necesitas manejarla en otro lugar
+        }
+    }
+
+    public void clearField(By locator) {
+        try {
+            WebElement inputField = waitForElementToBeVisible(locator, 10); // Espera explícita para garantizar visibilidad
+            inputField.clear(); // Limpia el campo
+            System.out.println("Campo limpiado: " + locator.toString());
+        } catch (Exception e) {
+            System.err.println("Error al limpiar el campo: " + e.getMessage());
         }
     }
 
