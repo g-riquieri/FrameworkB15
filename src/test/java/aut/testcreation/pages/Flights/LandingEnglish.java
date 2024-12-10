@@ -27,15 +27,6 @@ public class LandingEnglish extends SeleniumWrapper {
         waitXMills(2000);
         click(By.xpath("//button[contains(text(),'28')]"));
 
-        WebElement spanPasajeros = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[contains(text()," +
-                "'Passengers and flight class')]")));
-        WebElement btnMasPasajeros= wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@aria-label='Increase the number of adults']")));
-
-        spanPasajeros.click();
-        waitXMills(2000);
-        btnMasPasajeros.click();
-        waitXMills(2000);
-        spanPasajeros.click();
         click(By.xpath("//button[@aria-label='Find']"));
     }
 }

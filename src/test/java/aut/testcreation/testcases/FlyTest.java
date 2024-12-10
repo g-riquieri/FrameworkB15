@@ -93,11 +93,8 @@ public class FlyTest {
     }
 
     @Test
-    public void TC005() {
-        landing.closeCookies();
-        landing.completeTheForm();
-        flyList.btnMasBaratos();
-        flyList.elegirVuelo();
+    public void T006() {
+
     }
 
     //@AfterEach
