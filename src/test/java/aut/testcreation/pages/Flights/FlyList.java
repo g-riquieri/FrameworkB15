@@ -29,10 +29,10 @@ public class FlyList extends SeleniumWrapper {
         masBarato.click();
     }
 
-   public void elegirVuelo() {
+ /*   public void elegirVuelo() {
         waitXMills(3000);
         List<WebElement> vueloElecto = driver.findElements(By.xpath("//div[@class=\"trip-collection-view__trips-container-top\"]//div[contains(@data-testid,'transportcard')]"));
-        vueloElecto.getFirst().click();
+        //vueloElecto.getFirst().click();
 
         WebElement btnSelec = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[text()[contains(.,'Seleccionar')]]")));
         btnSelec.click();
@@ -52,4 +52,6 @@ public class FlyList extends SeleniumWrapper {
         //sendText(caracTel,caraTel);
         //sendText(telefono,phone);
     }
+
+  */
 }

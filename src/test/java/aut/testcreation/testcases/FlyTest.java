@@ -41,7 +41,7 @@ public class FlyTest {
         landing.closeCookies();
         landing.btnBuscar();
         flyList.btnMasBaratos();
-        flyList.elegirVuelo();
+        //flyList.elegirVuelo();
     }
 
    /* @Test

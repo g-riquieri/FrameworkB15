@@ -1,6 +1,7 @@
 package aut.testcreation.pages.Trains;
 
 import framework.engine.selenium.SeleniumWrapper;
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -15,6 +16,13 @@ public class LandingTrains extends SeleniumWrapper {
     public LandingTrains(WebDriver driver) {
         super(driver);
     }
+
+     public void textMessage(String text){
+        waitXMills(1000);
+        Assertions.assertEquals(text,getText(By.xpath("//button[contains(text(),' Volver a buscar')]")));
+        //message2 = xpath
+    }
+
 
     Actions actions = new Actions(driver);
 
@@ -38,22 +46,31 @@ public class LandingTrains extends SeleniumWrapper {
 
         click(By.xpath("//button[@aria-label=\"Buscar\"]"));
 
+
+
     }
     //------------------------------------------caso2--------------------------------------
-    public void reservaSugePage() {
+    public void busquedaNoExistente() {
         waitXMills(3000);
         closeCookies();
 
-        click(explicitWait(By.xpath("//button[@class=\"d-16g44dp\"]"), 20));
-        System.out.println("Se hizo click");
-
-        click(By.xpath("(//input[data-testid=':R5kd9dalamt2mm:'])"));
-        sendText(By.xpath("(//input[@role='combobox'])[1]"), "Madrid");
-
-        //sendText(By.xpath("//input[@id=\":R5kd9dalamt2mm:\"]"), "Madrid");
+        //Seleccionar Origen
+        sendText(By.xpath("//input[@id=\":R5kd9dalamt2mm:\"] "), "Alicante");
+        waitXMills(2000);
+        //Seleccionar Destino
+        sendText(By.xpath("//input[@id=\":R6kd9dalamt2mm:\"] "), "Barcelona");
         waitXMills(1000);
-        sendText(By.xpath("//input[@id=\":R6kd9dalamt2mm:\"]"), "Barcelona");
+
+        //Cambiar cantidad de pasajero
+        click(By.xpath("//span[.='Passengers and cabin class']\n"));
+        click(By.xpath("//button[@aria-label=\"Reducir el número de adultos\"]"));
+        click(By.xpath("(//span[text()='1 pasajero · Cualquier clase'])"));
         waitXMills(1000);
+
+        //Boton Buscar
+        click(By.xpath("//button[@aria-label=\"Buscar\"]"));
+
+        System.out.println("La busqueda no existe");
 
     }
     //-----------------------------------------caso3......................
@@ -281,4 +298,128 @@ public class LandingTrains extends SeleniumWrapper {
         click(By.xpath("//button[@class='btn btn-cta lead-generation-submit__btn-revamped-cta ']"));
 
     }
+
+    public void numFueraArea(){
+
+        waitXMills(3000);
+        closeCookies();
+
+        //Seleccionar Origen
+        sendText(By.xpath("//input[@id=\":R5kd9dalamt2mm:\"] "), "Madrid");
+        waitXMills(2000);
+        //Seleccionar Destino
+        sendText(By.xpath("//input[@id=\":R6kd9dalamt2mm:\"] "), "Barcelona");
+        waitXMills(1000);
+
+        //Cambiar cantidad de pasajero
+        click(By.xpath("//span[.='Passengers and cabin class']\n"));
+        click(By.xpath("//button[@aria-label=\"Reducir el número de adultos\"]"));
+        click(By.xpath("(//span[text()='1 pasajero · Cualquier clase'])"));
+        waitXMills(1000);
+
+        //Boton Buscar
+        click(By.xpath("//button[@aria-label=\"Buscar\"]"));
+
+        //EL MEJOR
+        click(By.xpath("(//span[text()='Precio por persona'])[1]"));
+
+        waitXMills(3000);
+        //Hace clic en Seleccionar Detalles del viaje ....
+        click(By.xpath("(//button[text()='Seleccionar'])[1]"));
+
+        waitXMills(3000);
+
+        WebElement msjFlexi= driver.findElement(By.xpath("//h4[contains(text(),'Viaja con más flexibilidad')]"));
+        waitXMills(1000);
+
+        //Por si sale la pantalla de la Flexibilidad del viaje
+        if(msjFlexi.isDisplayed())
+        {
+            click(By.xpath("//button[text()='Elegir Classic']"));
+        }
+        else
+        {
+            System.out.println("No se encuentra la pantalla de Flexibilidad");
+        }
+        waitXMills(3000);
+
+        click(By.xpath("//input[@name='name']"));
+        sendText(By.xpath("//input[@name='name']"),"Bruno");
+        waitXMills(3000);
+
+        sendText(By.xpath("//input[@name='surname']"),"Diaz");
+        waitXMills(3000);
+
+        sendText(By.xpath("//input[@name='email']"), "Brunodiaznoesbatman@gmail.com");
+        waitXMills(3000);
+
+        sendText(By.xpath("//input[@name='phone']"), "3804304301");
+
+
+    }
+
+
+    public void viajeX(){
+
+        waitXMills(3000);
+        closeCookies();
+
+        //Seleccionar Origen
+        sendText(By.xpath("//input[@id=\":R5kd9dalamt2mm:\"] "), "Madrid");
+        waitXMills(2000);
+        //Seleccionar Destino
+        sendText(By.xpath("//input[@id=\":R6kd9dalamt2mm:\"] "), "Bilbao");
+        waitXMills(1000);
+
+        //Clic en viaje de IDA Y VUELTA
+        click(By.xpath(" //button[contains(text(),'Ida y vuelta')]"));
+
+        //Cambiar cantidad de pasajero
+        click(By.xpath("//span[.='Passengers and cabin class']\n"));
+        click(By.xpath("//button[@aria-label=\"Reducir el número de adultos\"]"));
+        click(By.xpath("(//span[text()='1 pasajero · Cualquier clase'])"));
+        waitXMills(1000);
+
+        //Boton Buscar
+        click(By.xpath("//button[@aria-label=\"Buscar\"]"));
+
+        //EL MEJOR
+        click(By.xpath("(//span[text()='Precio por persona'])[1]"));
+
+        waitXMills(3000);
+        //Hace clic en Seleccionar Detalles del viaje ....
+        click(By.xpath("(//button[text()='Seleccionar'])[1]"));
+
+        waitXMills(3000);
+
+        WebElement msjFlexi= driver.findElement(By.xpath("//h4[contains(text(),'Viaja con más flexibilidad')]"));
+        waitXMills(1000);
+
+        //Por si sale la pantalla de la Flexibilidad del viaje
+        if(msjFlexi.isDisplayed())
+        {
+            click(By.xpath("//button[text()='Elegir Classic']"));
+        }
+        else
+        {
+            System.out.println("No se encuentra la pantalla de Flexibilidad");
+        }
+        waitXMills(3000);
+
+        click(By.xpath("//input[@name='name']"));
+        sendText(By.xpath("//input[@name='name']"),"Bruno");
+        waitXMills(3000);
+
+        sendText(By.xpath("//input[@name='surname']"),"Diaz");
+        waitXMills(3000);
+
+        sendText(By.xpath("//input[@name='email']"), "Brunodiaznoesbatman@gmail.com");
+        waitXMills(3000);
+
+        sendText(By.xpath("//input[@name='phone']"), "3804304301");
+
+
+    }
+
+
 }

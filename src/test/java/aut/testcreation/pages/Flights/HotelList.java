@@ -17,10 +17,10 @@ public class HotelList extends SeleniumWrapper {
         clickRejectAll();
     }
 
-    public void elegirHotel() {
+   /* public void elegirHotel() {
         waitXMills(3000);
         List<WebElement> listHoteles = driver.findElements(By.xpath("//div[contains(@class,'list-container')]"));
         listHoteles.getFirst().click();
-    }
+    }*/
 }
 

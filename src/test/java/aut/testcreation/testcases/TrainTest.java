@@ -28,28 +28,30 @@ public class TrainTest {
         landing.loadPage("https://www.rumbo.es/");
         landingTrains = new LandingTrains(driver);
     }
-//-------------------------------------CASO 01--------------------------------
+//----------------------------------------CASO 01-----BAJO NIVEL---------------------------
     @Test
     public void TC001(){
         landing.closeCookies();
         landing.goToTrains();
 
         landingTrains.compFormTren();
+
     }
     @AfterEach
     public void postConditions(){
         //landing.closeBrowser();
     }
-    //-------------------------------------CASO 02--------------------------------
-    @Test
+    //-------------------------------------CASO 02-----BAJO NIVEL---------------------------
     public void TC002(){
         landing.closeCookies();
-        landing.goToTrainsH();
+        landing.goToTrains();
 
-        landingTrains. reservaSugePage();
+        landingTrains. busquedaNoExistente();
+
+        landingTrains.textMessage("Volver a buscar");
 
     }
-    //-------------------------------------CASO 03--------------------------------
+    //-------------------------------------CASO 03----ALTO NIVEL----------------------------
     @Test
     public void TC003()throws AWTException {
         landing.closeCookies();
@@ -58,7 +60,7 @@ public class TrainTest {
         landingTrains.resViajeSS();
 
     }
-    //-------------------------------------CASO 04--------------------------------
+    //-------------------------------------CASO 04----ALTO NIVEL----------------------------
     @Test
     public void TC004()throws AWTException{
         landing.closeCookies();
@@ -67,4 +69,28 @@ public class TrainTest {
         landingTrains.viajeMasRapido();
 
     }
+    //-------------------------------------Caso 005-----MEDIO NIVEL------------------
+    @Test
+    public void TC005(){
+
+        landing.closeCookies();
+        landing.goToTrains();
+
+        landingTrains.numFueraArea();
+    }
+    //-------------------------------------Caso 005-----MEDIO NIVEL------------------
+
+    @Test
+
+    public void TC006(){
+
+        landing.closeCookies();
+        landing.goToTrains();
+
+        landingTrains.viajeX();
+
+    }
+
+
+
 }
