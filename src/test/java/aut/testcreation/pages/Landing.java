@@ -82,5 +82,8 @@ public class Landing extends SeleniumWrapper {
         click(By.xpath("//p[text()='Ver más']"));
         click(By.xpath("//div[text()='Cruceros']"));
     }
+    public void goToHotels(){
+        click(waitForElement(By.xpath("//p[.='Hoteles']"),10));
+    }
 
 }

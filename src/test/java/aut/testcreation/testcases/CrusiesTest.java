@@ -64,11 +64,12 @@ public class CrusiesTest {
         crusiersList.selecCamarote();
     }//done
 
-    //@Test
+    @Test
     public void TC005_ReservaMasDeMesLimite(){
         landing.closeCookies();
         landing.goToCruises();
-
+        crusiers.duracionDias();
+        crusiersList.cambioCantPersonas();
     }
 
     //@Test

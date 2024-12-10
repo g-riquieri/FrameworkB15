@@ -97,7 +97,6 @@ public class LandingCrusies extends SeleniumWrapper {
         click(By.xpath("//span[.='más de 9 días']"));
         waitXMills(1000);
         click(search);
-
     }
 
 }
